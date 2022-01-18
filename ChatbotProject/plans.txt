@@ -1,0 +1,9 @@
+Generalized Legislator information
+
+Link: https://www.scstatehouse.gov/legislatorssearch.php
+
+Prompt the user for their address, city, and zip code
+After that get the list of legislators and links to their page. Then ask which one they want to know about.
+Once we do that we can store the information about the legislator in a JSON object.
+Then we can ask the user what they want to know about them.
+Then turn the JSON data into text.
