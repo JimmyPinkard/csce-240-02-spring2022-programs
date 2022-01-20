@@ -1,8 +1,9 @@
 SRC = src/*.cpp
 COMP = g++ --std=c++17
-BIN = FileBasedCalculator
+BIN = build/FileBasedCalculator
 
 $(BIN) : $(SRC)
+	mkdir build/
 	$(COMP) $(SRC) -o $(BIN)
 
 run : 
@@ -10,4 +11,4 @@ run :
 	./$(BIN)
 
 clean :
-	rm $(BIN)
+	rm -rf build/
