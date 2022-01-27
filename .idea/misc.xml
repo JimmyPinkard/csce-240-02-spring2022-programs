@@ -6,6 +6,11 @@
       <MakefileProjectSettings>
         <option name="cleanTarget" value="" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/GeometricCalculator" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/GeometricCalculator" />
+          </set>
+        </option>
         <option name="version" value="2" />
       </MakefileProjectSettings>
     </option>

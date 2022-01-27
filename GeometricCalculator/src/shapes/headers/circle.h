@@ -7,14 +7,16 @@
 
 #include "shape.h"
 
-const float PI = 3.14;
+const static double PI = 3.14;
 
-class circle : shape {
+class Circle : public Shape {
+private:
     double radius;
 public:
-    circle(const double radius);
+    Circle(const double radius);
     double perimeter() override;
     double area() override;
+    std::string to_string() override;
 };
 
 

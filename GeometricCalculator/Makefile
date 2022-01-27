@@ -1,14 +1,21 @@
-SRC = src/*.cpp
-COMP = g++ --std=c++17
+SRC = src/*.cpp src/shapes/*.cpp
+HEAD = src/headers/*.h src/shapes/headers/*.h
+OBJS = *.o
+COMP = g++ --std=c++17 -g3
 BIN = build/GeometricCalculator
 
-$(BIN) : $(SRC)
+$(BIN) : $(OBJS)
 	mkdir build/
-	$(COMP) $(SRC) -o $(BIN)
+	$(COMP) $(OBJS) -o $(BIN)
+	rm $(OBJS)
+
+$(OBJS) : $(SRC) $(HEAD)
+	make clean
+	$(COMP) -c $(SRC)
 
 run : 
 	make
 	./$(BIN)
 
 clean :
-	rm -rf build/
+	rm -rf build/ *.o

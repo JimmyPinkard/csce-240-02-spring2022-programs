@@ -7,13 +7,13 @@
 
 #include "shape.h"
 
-class rectangle : shape {
-public:
+class Rectangle : public Shape {
+private:
     double length, width;
-    rectangle(const double length, const double width);
+public:
+    Rectangle(const double length, const double width);
     double perimeter() override;
     double area() override;
 };
-
 
 #endif //CSCE240_RECTANGLE_H

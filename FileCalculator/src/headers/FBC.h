@@ -4,7 +4,7 @@
 
 void run(int argc, char **argv);
 void fatal(const std::string &message);
-std::string parse_input(const std::string &text);
+std::string create_shape(const std::string &text);
 std::string operation(const char op, int num, int num2);
 //File I/O
 std::string read_file(const std::string &path);

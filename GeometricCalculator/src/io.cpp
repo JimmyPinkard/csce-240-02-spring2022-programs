@@ -1,7 +1,7 @@
 #include <fstream>
 
 #include "headers/io.h"
-#include "headers/utils.h"
+#include "headers/common.h"
 
 std::string read_file(const std::string &path)
 {
@@ -26,6 +26,6 @@ void write_file(const std::string &path, const std::string &contents)
     {
         fatal("Couldn't create/open file");
     }
-    file.write(contents.c_str(), contents.length());
+    file << contents;
     file.close();
 }

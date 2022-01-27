@@ -4,15 +4,16 @@
 
 #include "headers/rectangle.h"
 
-rectangle::rectangle(const double length, const double width) {
+Rectangle::Rectangle(const double length, const double width) {
     this->length = length;
     this->width = width;
+    this->set_props();
 }
 
-double rectangle::perimeter() {
+double Rectangle::perimeter() {
     return 2 * (length + width);
 }
 
-double rectangle::area() {
+double Rectangle::area() {
     return width * length;
 }

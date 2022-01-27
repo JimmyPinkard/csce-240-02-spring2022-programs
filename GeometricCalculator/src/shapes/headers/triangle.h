@@ -7,10 +7,11 @@
 
 #include "shape.h"
 
-class triangle : shape {
+class Triangle : public Shape {
+private:
     double one, two, three;
 public:
-    triangle(const double one, const double two, const double three);
+    Triangle(const double one, const double two, const double three);
     double perimeter() override;
     double area() override;
 };
