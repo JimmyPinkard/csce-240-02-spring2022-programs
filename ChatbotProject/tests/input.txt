@@ -1,5 +1,0 @@
-//To be made into a test later
-
-Address: 246 Oleander Mill Drive
-City: Columbia
-Zip: 29229
