@@ -1,1 +1,0 @@
-{Area: 78.500000, Circumference: 31.400000}
