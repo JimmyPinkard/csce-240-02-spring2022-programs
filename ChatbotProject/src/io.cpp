@@ -1,4 +1,5 @@
 #include <fstream>
+#include <string.h>
 #include "headers/io.h"
 std::string read_file(const std::string &path)
 {

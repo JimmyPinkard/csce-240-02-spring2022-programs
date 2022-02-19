@@ -1,10 +1,10 @@
-#include <stdlib.h>
 #include <string>
-#include "headers/io.h"
 #include <iostream>
+#include "headers/io.h"
 
 int main()
 {
-	system("curl https://www.scstatehouse.gov/member.php?code=279545421 > data.html");
+    std::string data = read_file("data.txt");
+    std::cout << data;
 	return 0;
 }
