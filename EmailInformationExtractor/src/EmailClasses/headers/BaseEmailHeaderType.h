@@ -1,7 +1,3 @@
-//
-// Created by jimmy on 3/1/22.
-//
-
 #ifndef INC_240_BASEEMAILHEADERTYPE_H
 #define INC_240_BASEEMAILHEADERTYPE_H
 

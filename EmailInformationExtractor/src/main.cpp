@@ -1,6 +1,7 @@
-//
-// Created by jimmy on 3/1/22.
-//
+#include "EmailClasses/headers/BaseEmailHeaderType.h"
+#include "EmailClasses/headers/GmailHeaderType.h"
+#include "EmailClasses/headers/OutlookHeaderType.h"
+#include "headers/io.h"
 
 int main()
 {
