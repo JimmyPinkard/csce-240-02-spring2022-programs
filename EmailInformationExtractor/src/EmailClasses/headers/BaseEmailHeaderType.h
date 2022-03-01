@@ -5,6 +5,7 @@
 #include <vector>
 
 class BaseEmailHeaderType {
+protected:
     std::vector<std::string> cc;
     std::vector<std::string> to;
     std::string from;
