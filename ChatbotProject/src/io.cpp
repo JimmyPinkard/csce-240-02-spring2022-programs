@@ -1,6 +1,8 @@
 #include <fstream>
-#include <string.h>
+#include <string>
+
 #include "headers/io.h"
+
 std::string read_file(const std::string &path)
 {
     std::ifstream file(path);
@@ -11,7 +13,7 @@ std::string read_file(const std::string &path)
     std::string contents, buffer;
     while(std::getline(file, buffer))
     {
-        contents += buffer + '\n';
+        contents += buffer;
     }
     file.close();
     return contents;

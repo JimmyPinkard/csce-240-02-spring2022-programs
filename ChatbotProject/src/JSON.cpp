@@ -2,6 +2,35 @@
 
 #include "headers/JSON.h"
 
+std::string remove_whitespace(const std::string &text)
+{
+    std::string str;
+    int length = text.length();
+    for(int i = 0; i < length; ++i)
+    {
+        char c = text[i];
+        switch(c)
+        {
+            case '\n':
+            case '\t':
+            case ' ':
+            case ',':
+            {
+            } break;
+            default:
+            {
+                str += c;
+            } break;
+        }
+    }
+    return str;
+}
+
+std::string sub_string(const std::string &text, const int start, const int end)
+{
+    return text.substr(start, end - start);
+}
+
 int get_value_index(int end, const std::string &text)
 {
     int start = text.find(':', end) + 1;
@@ -10,22 +39,16 @@ int get_value_index(int end, const std::string &text)
     {
         case '[':
         {
-            end = text.find("]", end);
+            end = text.find(']', end);
         } break;
         case '{':
         {
-            end = text.find("}", end);
+            end = text.find('}', end);
         } break;
         case '\"':
         {
             ++start;
-            end = text.find("\"", end);
-        } break;
-        case ' ':
-        case '\n':
-        case '\t':
-        {
-            end = get_value_index(++start, text);
+            end = text.find('"', end);
         } break;
         default:
         {
@@ -43,18 +66,19 @@ JSON::JSON(const std::string &text)
 
 void JSON::parse_json(const std::string &text)
 {
-    unsigned int length = text.length();
-    int start = 0, end;
-    for(int i = 0; i < length;)
+    const std::string copy = remove_whitespace(text);
+    int length = copy.length(), start = 0, end;
+    for(int i = 0; i < length || i < 0; i = start)
     {
-        start = text.find("\"", start) + 1;
-        end = text.find("\"", start + 1);
-        std::string key = text.substr(start, end - start);
-        end = get_value_index(end, text);
-        std::string value = text.substr(start, end - start);
+        start = copy.find('"', start) + 1;
+        end = copy.find('"', start + 1);
+        std::string key = sub_string(copy, start, end);
+        end = get_value_index(end, copy);
+        std::string value = sub_string(copy, start, end);
         add(key, value);
-        start = i = end;
-        std::cout << "Added {" << key << ", " << data[key] << "}\n";
+        //Pass the comma
+        i = start;
+        start = end;
     }
 }
 
@@ -83,7 +107,7 @@ void JSON::set(const std::string &key, const std::string &value)
 std::string JSON::to_string()
 {
     std::string str = "{\n";
-    for(const std::pair<std::string, std::string> &pair : data)
+    for(const auto &pair : data)
     {
         str += "\"" + pair.first + "\": \"" + pair.second + "\"\n";
     }
