@@ -1,12 +1,12 @@
 #include <string>
-#include <unordered_map>
+#include <map>
 
 #ifndef INC_240_JSON_H
 #define INC_240_JSON_H
 
 
 class JSON {
-    std::unordered_map<std::string, std::string> data;
+    std::map<std::string, std::string> data;
     void parse_json(const std::string &text);
     public:
     JSON(const std::string &text);

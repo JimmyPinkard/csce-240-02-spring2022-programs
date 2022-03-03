@@ -8,6 +8,6 @@ int main(int argc, char **argv)
 {
     std::string data = read_file("data/mia.json");
     JSON json(data);
-    std::cout << json.get("name");
+    std::cout << json.to_string();
 	return 0;
 }
